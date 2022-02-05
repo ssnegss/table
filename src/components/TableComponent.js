@@ -27,35 +27,33 @@ export class BasicTable extends React.Component {
     render() {
         let newdata = this.state.data;
 
-        let { id, firstName, lastName, email, phoneNumber } = this.props;
-
         return (
             <table className="table is-bordered is-hoverable is-fullwidth has-text-centered">
                 <thead>
                     <tr>
                         <th>
                             <button onClick={(e) => this.onSort(e, "id")}>
-                                {id}
+                                id
                             </button>
                         </th>
                         <th>
                             <button onClick={(e) => this.onSort(e, "firstName")}>
-                                {firstName}
+                                First name
                             </button>
                         </th>
                         <th>
                             <button onClick={(e) => this.onSort(e, "lastName")}>
-                                {lastName}
+                                Last name
                             </button>
                         </th>
                         <th>
                             <button onClick={(e) => this.onSort(e, "email")}>
-                                {email}
+                                Email
                             </button>
                         </th>
                         <th>
                             <button onClick={(e) => this.onSort(e, "phone")}>
-                                {phoneNumber}
+                                Phone number
                             </button>
                         </th>
                     </tr>
