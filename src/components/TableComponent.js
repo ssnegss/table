@@ -31,13 +31,11 @@ export class BasicTable extends React.Component {
             <table className="table is-bordered is-hoverable is-fullwidth has-text-centered">
                 <thead>
                     <tr>
+                        <th> id </th>
                         <th>
-                            <button onClick={(e) => this.onSort(e, "id")}>
-                                id
-                            </button>
-                        </th>
-                        <th>
-                            <button onClick={(e) => this.onSort(e, "firstName")}>
+                            <button
+                                onClick={(e) => this.onSort(e, "firstName")}
+                            >
                                 First name
                             </button>
                         </th>
