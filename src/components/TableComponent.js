@@ -1,4 +1,5 @@
 import * as React from "react";
+import { TableHeaderComponent as ThComponent } from "./TableHeaderComponent";
 
 export class BasicTable extends React.Component {
     constructor(props) {
@@ -32,28 +33,22 @@ export class BasicTable extends React.Component {
                 <thead>
                     <tr>
                         <th> id </th>
-                        <th>
-                            <button
-                                onClick={(e) => this.onSort(e, "firstName")}
-                            >
-                                First name
-                            </button>
-                        </th>
-                        <th>
-                            <button onClick={(e) => this.onSort(e, "lastName")}>
-                                Last name
-                            </button>
-                        </th>
-                        <th>
-                            <button onClick={(e) => this.onSort(e, "email")}>
-                                Email
-                            </button>
-                        </th>
-                        <th>
-                            <button onClick={(e) => this.onSort(e, "phone")}>
-                                Phone number
-                            </button>
-                        </th>
+                        <ThComponent
+                            name="First name"
+                            onClick={(e) => this.onSort(e, "firstName")}
+                        />
+                        <ThComponent
+                            name="Last name"
+                            onClick={(e) => this.onSort(e, "lastName")}
+                        />
+                        <ThComponent
+                            name="Email"
+                            onClick={(e) => this.onSort(e, "email")}
+                        />
+                        <ThComponent
+                            name="Phone number"
+                            onClick={(e) => this.onSort(e, "phone")}
+                        />
                     </tr>
                 </thead>
                 <tbody>
