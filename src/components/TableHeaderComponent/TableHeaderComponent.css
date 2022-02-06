@@ -5,6 +5,8 @@
 
 button {
     font-family: 'Montserrat', sans-serif;
+    color: rgb(8, 8, 8);
+    background-color: rgb(219, 210, 248);
     margin: 0.3rem;
     border-radius: 50px;
     border-width: 0px;
@@ -15,7 +17,7 @@ button {
 }
 
 button:hover {
-    background-color: rgb(144, 144, 144);
+    background-color: rgb(252, 223, 253);
 }
 
 .searchField {
