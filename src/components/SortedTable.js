@@ -1,7 +1,6 @@
 import * as React from "react";
 import { useSortableData } from "../customHooks/useSortableData";
 import { TableHeaderComponent } from "./TableHeaderComponent";
-import { GetTableData } from "../getTableData";
 
 const ProductTable = (props) => {
     const { items, requestSort, sortConfig } = useSortableData(props.products);
@@ -14,7 +13,7 @@ const ProductTable = (props) => {
 
     return (
         <table>
-            <caption>Products</caption>
+            <caption>Clients</caption>
             <thead>
                 <tr>
                     <TableHeaderComponent
@@ -30,12 +29,12 @@ const ProductTable = (props) => {
                     <TableHeaderComponent
                         className={getClassNamesFor("email")}
                         onClick={() => requestSort("email")}
-                        name="Stock"
+                        name="Email"
                     />
                     <TableHeaderComponent
                         className={getClassNamesFor("phone")}
                         onClick={() => requestSort("phone")}
-                        name="Phone"
+                        name="Phone number"
                     />
                 </tr>
             </thead>
