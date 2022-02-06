@@ -1,7 +1,8 @@
 import * as React from "react";
 import { useState } from "react";
-import { useSortableData } from "../customHooks/useSortableData";
-import { TableHeaderComponent } from "./TableHeaderComponent";
+import { useSortableData } from "../../customHooks/useSortableData";
+import { TableHeaderComponent } from "../TableHeaderComponent/TableHeaderComponent";
+import './SortedTableComponent.css'
 
 const ProductTable = (props) => {
     const { items, requestSort, sortConfig } = useSortableData(props.products);
@@ -22,49 +23,34 @@ const ProductTable = (props) => {
             <caption>Clients</caption>
             <thead>
                 <tr>
-                    <input
-                        type="text"
-                        name="search"
-                        value={firstNameSearchValue}
-                        onChange={(e) => setFirstNameSearchValue(e.target.value)}
-                    />
+                    
                     <TableHeaderComponent
                         className={getClassNamesFor("firstName")}
                         onClick={() => requestSort("firstName")}
                         name="First name"
-                    />
-                    <input
-                        type="text"
-                        name="search"
-                        value={lastNameSearchValue}
-                        onChange={(e) => setLastNameSearchValue(e.target.value)}
+                        value={firstNameSearchValue}
+                        onChange={(e) => setFirstNameSearchValue(e.target.value)}
                     />
                     <TableHeaderComponent
                         className={getClassNamesFor("lastName")}
                         onClick={() => requestSort("lastName")}
                         name="Last name"
-                    />
-                    <input
-                        type="text"
-                        name="search"
-                        value={emailSearchValue}
-                        onChange={(e) => setEmailSearchValue(e.target.value)}
+                        value={lastNameSearchValue}
+                        onChange={(e) => setLastNameSearchValue(e.target.value)}
                     />
                     <TableHeaderComponent
                         className={getClassNamesFor("email")}
                         onClick={() => requestSort("email")}
                         name="Email"
-                    />
-                    <input
-                        type="text"
-                        name="search"
-                        value={phoneSearchValue}
-                        onChange={(e) => setPhoneSearchValue(e.target.value)}
+                        value={emailSearchValue}
+                        onChange={(e) => setEmailSearchValue(e.target.value)}
                     />
                     <TableHeaderComponent
                         className={getClassNamesFor("phone")}
                         onClick={() => requestSort("phone")}
                         name="Phone number"
+                        value={phoneSearchValue}
+                        onChange={(e) => setPhoneSearchValue(e.target.value)}
                     />
                 </tr>
             </thead>

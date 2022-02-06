@@ -1,5 +1,5 @@
 import { BasicTable } from "./components/TableComponent";
-import { SortedTable } from "./components/SortedTable";
+import { SortedTable } from "./components/SortedTableComponent/SortedTable";
 
 function App() {
     return (
