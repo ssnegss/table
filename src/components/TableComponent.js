@@ -1,5 +1,5 @@
 import * as React from "react";
-import { TableHeaderComponent as ThComponent } from "./TableHeaderComponent";
+import { TableHeaderComponent as ThComponent } from "./ThComponent";
 
 export class BasicTable extends React.Component {
     constructor(props) {

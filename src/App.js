@@ -1,9 +1,17 @@
 import { BasicTable } from "./components/TableComponent";
+import SortedTable from "./components/SortedReactTable";
 
 function App() {
     return (
         <div className="App">
-            <BasicTable id = "id" firstName="Имя" lastName="Фамилия" email="Почта" phoneNumber="Номер телефона"/>
+            <SortedTable />
+            {/* <BasicTable
+                id="id"
+                firstName="Имя"
+                lastName="Фамилия"
+                email="Почта"
+                phoneNumber="Номер телефона"
+            /> */}
         </div>
     );
 }
