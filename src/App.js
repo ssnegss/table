@@ -1,5 +1,5 @@
 import { BasicTable } from "./components/TableComponent";
-import SortedTable from "./components/SortedReactTable";
+import { SortedTable } from "./components/SortedTable";
 
 function App() {
     return (
