@@ -4,7 +4,7 @@ import { useSortableData } from "../../customHooks/useSortableData";
 import { TableHeaderComponent } from "../TableHeaderComponent/TableHeaderComponent";
 import './SortedTableComponent.css'
 
-const ProductTable = (props) => {
+const SortedTable = (props) => {
     const { items, requestSort, sortConfig } = useSortableData(props.products);
     const getClassNamesFor = (name) => {
         if (!sortConfig) {
@@ -81,7 +81,7 @@ const ProductTable = (props) => {
     );
 };
 
-export const SortedTable = () => {
+export const ProductTable = () => {
     const [mydata, setmyData] = useState([]);
 
     async function GetTableData() {
@@ -99,7 +99,7 @@ export const SortedTable = () => {
 
     return (
         <div className="myTable">
-            <ProductTable products={mydata} />
+            <SortedTable products={mydata} />
         </div>
     );
 };

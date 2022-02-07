@@ -1,10 +1,10 @@
 import { BasicTable } from "./components/TableComponent";
-import { SortedTable } from "./components/SortedTableComponent/SortedTable";
+import { ProductTable } from "./components/SortedTableComponent/SortedTable";
 
 function App() {
     return (
         <div className="App">
-            <SortedTable />
+            <ProductTable />
             {/* <BasicTable
                 id="id"
                 firstName="Имя"
