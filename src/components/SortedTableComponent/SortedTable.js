@@ -2,6 +2,7 @@ import * as React from "react";
 import { useState } from "react";
 import { useSortableData } from "../../customHooks/useSortableData";
 import { TableHeaderComponent } from "../TableHeaderComponent/TableHeaderComponent";
+import { tableColumns } from './TableColumns'
 import './SortedTableComponent.css'
 
 const SortedTable = (props) => {
@@ -79,32 +80,7 @@ export const ProductTable = () => {
         GetTableData();
     }, []);
 
-    const tableColumns = [
-        {
-            columnName: "First name",
-            className: "firstName",
-            isSortable: true,
-            isSearchable: true,
-        },
-        {
-            columnName: "Last name",
-            className: "lastName",
-            isSortable: true,
-            isSearchable: true,
-        },
-        {
-            columnName: "Email",
-            className: "email",
-            isSortable: true,
-            isSearchable: true,
-        },
-        {
-            columnName: "Phone number",
-            className: "phone",
-            isSortable: true,
-            isSearchable: true,
-        },
-    ]
+    
 
     return (
         <div className="myTable">
