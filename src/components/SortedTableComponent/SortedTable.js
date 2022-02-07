@@ -2,8 +2,8 @@ import * as React from "react";
 import { useState } from "react";
 import { useSortableData } from "../../customHooks/useSortableData";
 import { TableHeaderComponent } from "../TableHeaderComponent/TableHeaderComponent";
-import { tableColumns } from './TableColumns'
-import './SortedTableComponent.css'
+import { tableColumns } from "./TableColumns";
+import "./SortedTableComponent.css";
 
 const SortedTable = (props) => {
     const { items, requestSort, sortConfig } = useSortableData(props.products);
@@ -26,39 +26,64 @@ const SortedTable = (props) => {
                 <tr>
                     {props.tableColumns.map((tableColumn) => (
                         <TableHeaderComponent
-                        className={getClassNamesFor(tableColumn.className)}
-                        buttonDisabled={tableColumn.isSortable? false : true}
-                        onClick={() => requestSort(tableColumn.className)}
-                        name={tableColumn.columnName}
-                        inputReadOnly={tableColumn.isSearchable? false : true}
-                        // value={firstNameSearchValue}
-                        // onChange={(e) => setFirstNameSearchValue(e.target.value)}
-                    />
+                            className={getClassNamesFor(tableColumn.className)}
+                            buttonDisabled={
+                                tableColumn.isSortable ? false : true
+                            }
+                            onClick={() => requestSort(tableColumn.className)}
+                            name={tableColumn.columnName}
+                            inputReadOnly={
+                                tableColumn.isSearchable ? false : true
+                            }
+                            // value={firstNameSearchValue}
+                            // onChange={(e) =>
+                            //     setFirstNameSearchValue(e.target.value)
+                            // }
+                        />
                     ))}
                 </tr>
             </thead>
             <tbody>
-                {items
-                .filter((item) =>
-                item.firstName.match(new RegExp(firstNameSearchValue, "i"))
-                )
-                .filter((item) =>
-                item.lastName.match(new RegExp(lastNameSearchValue, "i"))
-                )
-                .filter((item) =>
-                item.email.match(new RegExp(emailSearchValue, "i"))
-                )
-                .filter((item) =>
-                item.phone.match(new RegExp(phoneSearchValue, "i"))
-                )
-                .map((item) => (
+                {items.map((item) => (
                     <tr key={item.id}>
-                        <td>{item.firstName}</td>
-                        <td>{item.lastName}</td>
-                        <td>{item.email}</td>
-                        <td>{item.phone}</td>
+                        {props.tableColumns.map((tableColumn) => {
+                            if (
+                                Object.keys(item).find(
+                                    (a) => a == tableColumn.className
+                                )
+                            )
+                                var b = Object.keys(item).find(
+                                    (a) => a == tableColumn.className
+                                )
+                                return <td>{(item)[b]}</td>;
+                        })}
                     </tr>
                 ))}
+                {/* {items
+                    .filter((item) =>
+                        item.firstName.match(
+                            new RegExp(firstNameSearchValue, "i")
+                        )
+                    )
+                    .filter((item) =>
+                        item.lastName.match(
+                            new RegExp(lastNameSearchValue, "i")
+                        )
+                    )
+                    .filter((item) =>
+                        item.email.match(new RegExp(emailSearchValue, "i"))
+                    )
+                    .filter((item) =>
+                        item.phone.match(new RegExp(phoneSearchValue, "i"))
+                    )
+                    .map((item) => (
+                        <tr key={item.id}>
+                            <td>{item.firstName}</td>
+                            <td>{item.lastName}</td>
+                            <td>{item.email}</td>
+                            <td>{item.phone}</td>
+                        </tr>
+                    ))} */}
             </tbody>
         </table>
     );
@@ -80,11 +105,9 @@ export const ProductTable = () => {
         GetTableData();
     }, []);
 
-    
-
     return (
         <div className="myTable">
-            <SortedTable products={mydata} tableColumns={tableColumns}/>
+            <SortedTable products={mydata} tableColumns={tableColumns} />
         </div>
     );
 };

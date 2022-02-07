@@ -30,3 +30,7 @@ button:hover {
     width: 8rem;
     font-size: 1rem;
 }
+
+textarea:focus, input:focus{
+    outline: none;
+}
