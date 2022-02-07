@@ -9,11 +9,13 @@ export const TableHeaderComponent = (props) => {
                     type="button"
                     onClick={props.onClick}
                     className={props.className}
+                    disabled={props.buttonDisabled}
                 >
                     {props.name}
                 </button>
                 <input
                     type="text"
+                    readOnly ={props.inputReadOnly}
                     className="searchField"
                     value={props.value}
                     onChange={props.onChange}

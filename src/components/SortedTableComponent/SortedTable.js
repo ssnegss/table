@@ -23,35 +23,17 @@ const SortedTable = (props) => {
             <caption>Clients</caption>
             <thead>
                 <tr>
-                    
-                    <TableHeaderComponent
-                        className={getClassNamesFor("firstName")}
-                        onClick={() => requestSort("firstName")}
-                        name="First name"
-                        value={firstNameSearchValue}
-                        onChange={(e) => setFirstNameSearchValue(e.target.value)}
+                    {props.tableColumns.map((tableColumn) => (
+                        <TableHeaderComponent
+                        className={getClassNamesFor(tableColumn.className)}
+                        buttonDisabled={tableColumn.isSortable? false : true}
+                        onClick={() => requestSort(tableColumn.className)}
+                        name={tableColumn.columnName}
+                        inputReadOnly={tableColumn.isSearchable? false : true}
+                        // value={firstNameSearchValue}
+                        // onChange={(e) => setFirstNameSearchValue(e.target.value)}
                     />
-                    <TableHeaderComponent
-                        className={getClassNamesFor("lastName")}
-                        onClick={() => requestSort("lastName")}
-                        name="Last name"
-                        value={lastNameSearchValue}
-                        onChange={(e) => setLastNameSearchValue(e.target.value)}
-                    />
-                    <TableHeaderComponent
-                        className={getClassNamesFor("email")}
-                        onClick={() => requestSort("email")}
-                        name="Email"
-                        value={emailSearchValue}
-                        onChange={(e) => setEmailSearchValue(e.target.value)}
-                    />
-                    <TableHeaderComponent
-                        className={getClassNamesFor("phone")}
-                        onClick={() => requestSort("phone")}
-                        name="Phone number"
-                        value={phoneSearchValue}
-                        onChange={(e) => setPhoneSearchValue(e.target.value)}
-                    />
+                    ))}
                 </tr>
             </thead>
             <tbody>
@@ -100,29 +82,33 @@ export const ProductTable = () => {
     const tableColumns = [
         {
             columnName: "First name",
-            isSortable: "true",
-            isSearchable: "true",
+            className: "firstName",
+            isSortable: true,
+            isSearchable: true,
         },
         {
             columnName: "Last name",
-            isSortable: "true",
-            isSearchable: "true",
+            className: "lastName",
+            isSortable: true,
+            isSearchable: true,
         },
         {
             columnName: "Email",
-            isSortable: "true",
-            isSearchable: "true",
+            className: "email",
+            isSortable: true,
+            isSearchable: true,
         },
         {
             columnName: "Phone number",
-            isSortable: "true",
-            isSearchable: "true",
+            className: "phone",
+            isSortable: true,
+            isSearchable: true,
         },
     ]
 
     return (
         <div className="myTable">
-            <SortedTable products={mydata} />
+            <SortedTable products={mydata} tableColumns={tableColumns}/>
         </div>
     );
 };
