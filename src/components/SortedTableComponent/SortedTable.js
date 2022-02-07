@@ -97,6 +97,29 @@ export const ProductTable = () => {
         GetTableData();
     }, []);
 
+    const tableColumns = [
+        {
+            columnName: "First name",
+            isSortable: "true",
+            isSearchable: "true",
+        },
+        {
+            columnName: "Last name",
+            isSortable: "true",
+            isSearchable: "true",
+        },
+        {
+            columnName: "Email",
+            isSortable: "true",
+            isSearchable: "true",
+        },
+        {
+            columnName: "Phone number",
+            isSortable: "true",
+            isSearchable: "true",
+        },
+    ]
+
     return (
         <div className="myTable">
             <SortedTable products={mydata} />
