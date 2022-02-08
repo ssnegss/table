@@ -1,4 +1,4 @@
-import { ProductTable } from "./components/SortedTableComponent/SortedTable";
+import { ProductTable } from "./components/ProductTableComponent/ProductTableComponent";
 
 function App() {
     return (

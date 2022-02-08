@@ -2,10 +2,9 @@ import * as React from "react";
 import { useState } from "react";
 import { useSortableData } from "../../customHooks/useSortableData";
 import { TableHeaderComponent } from "../TableHeaderComponent/TableHeaderComponent";
-import { tableColumns } from "./TableColumns";
 import "./SortedTableComponent.css";
 
-const SortedTable = (props) => {
+export const SortedTableComponent = (props) => {
     const { items, requestSort, sortConfig } = useSortableData(props.products);
     const getClassNamesFor = (name) => {
         if (!sortConfig) {
@@ -35,36 +34,21 @@ const SortedTable = (props) => {
                             inputReadOnly={
                                 tableColumn.isSearchable ? false : true
                             }
-                            // value={firstNameSearchValue}
-                            // onChange={(e) =>
-                            //     setFirstNameSearchValue(e.target.value)
-                            // }
+                            value={firstNameSearchValue}
+                            onChange={(e) =>
+                                setFirstNameSearchValue(e.target.value)
+                            }
                         />
                     ))}
                 </tr>
             </thead>
             <tbody>
-                {items.map((item) => (
-                    <tr key={item.id}>
-                        {props.tableColumns.map((tableColumn) => {
-                            if (
-                                Object.keys(item).find(
-                                    (a) => a == tableColumn.className
-                                )
-                            )
-                                var b = Object.keys(item).find(
-                                    (a) => a == tableColumn.className
-                                )
-                                return <td>{(item)[b]}</td>;
-                        })}
-                    </tr>
-                ))}
-                {/* {items
-                    .filter((item) =>
-                        item.firstName.match(
-                            new RegExp(firstNameSearchValue, "i")
-                        )
-                    )
+                {items
+                    // .filter((item) =>
+                    //     item[props.tableColumns.className].match(
+                    //         new RegExp(firstNameSearchValue, "i")
+                    //     )(console.log(props.tableColumns.className))
+                    // )
                     .filter((item) =>
                         item.lastName.match(
                             new RegExp(lastNameSearchValue, "i")
@@ -78,36 +62,17 @@ const SortedTable = (props) => {
                     )
                     .map((item) => (
                         <tr key={item.id}>
-                            <td>{item.firstName}</td>
-                            <td>{item.lastName}</td>
-                            <td>{item.email}</td>
-                            <td>{item.phone}</td>
+                            {props.tableColumns.map((tableColumn) => {
+                                // var fieldName = Object.keys(item).find(
+                                //     (a) => a == tableColumn.className
+                                // );
+                                return <td>{item[tableColumn.className]}</td>;
+                            })}
                         </tr>
-                    ))} */}
+                    ))}
             </tbody>
         </table>
     );
 };
 
-export const ProductTable = () => {
-    const [mydata, setmyData] = useState([]);
 
-    async function GetTableData() {
-        const response = await fetch(
-            ` http://www.filltext.com/?rows=20&id={number|1000}&firstName={firstName}&lastName={lastName}&email={email}&phone={phone|(xxx)xxx-xx-xx}&address={addressObject}&description={lorem|32}`
-        );
-        const data = await response.json();
-        // console.log(data);
-        setmyData(data);
-    }
-
-    React.useEffect(async () => {
-        GetTableData();
-    }, []);
-
-    return (
-        <div className="myTable">
-            <SortedTable products={mydata} tableColumns={tableColumns} />
-        </div>
-    );
-};

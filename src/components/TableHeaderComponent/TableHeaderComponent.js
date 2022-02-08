@@ -15,9 +15,11 @@ export const TableHeaderComponent = (props) => {
                 </button>
                 <input
                     type="text"
+                    id={props.id}
                     readOnly ={props.inputReadOnly}
                     className="searchField"
                     value={props.value}
+                    defaultValue=""
                     onChange={props.onChange}
                 />
             </div>
